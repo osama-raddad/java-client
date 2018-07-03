@@ -75,6 +75,9 @@ public class FingerPrintTest {
     private void clickNext()  {
         driver.findElementById("com.android.settings:id/next_button").click();
     }
+    private void clickFingerPrintNext(){
+        driver.findElementById("com.android.settings:id/fingerprint_next_button").click();
+    }
 
     private void clickOKInPopup() {
         driver.findElementById("android:id/button1").click();
@@ -101,7 +104,7 @@ public class FingerPrintTest {
         findElementByText("PIN").click();
         enterPasswordAndContinue();
         enterPasswordAndContinue();
-        clickNext();
+        //clickNext();
     }
 
     /**
@@ -109,11 +112,12 @@ public class FingerPrintTest {
      */
     @Test public void fingerPrintTest() {
         findElementByText("Fingerprint").click();
-        clickNext();
+        clickFingerPrintNext();
         enterPasswordAndContinue();
         clickNext();
 
-        driver.fingerPrint(2);
+        driver.fingerPrint(1234);
+        driver.fingerPrint(1234);
         try {
             clickNext();
         } catch (Exception e) {

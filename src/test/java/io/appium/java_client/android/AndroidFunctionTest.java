@@ -39,7 +39,8 @@ public class AndroidFunctionTest extends BaseAndroidTest {
     private final AppiumFunction<Pattern, WebDriver> contextFunction = input -> {
         Set<String> contexts = driver.getContextHandles();
         String current = driver.getContext();
-        contexts.forEach(context -> {
+        contexts.forEach(
+                context -> {
             Matcher m = input.matcher(context);
             if (m.find()) {
                 driver.context(context);
@@ -77,6 +78,7 @@ public class AndroidFunctionTest extends BaseAndroidTest {
     }
 
     @Test public void complexWaitingTestWithPreCondition() {
+        //failing
         AppiumFunction<Pattern, List<WebElement>> compositeFunction =
                 searchingFunction.compose(contextFunction);
 
@@ -89,6 +91,7 @@ public class AndroidFunctionTest extends BaseAndroidTest {
     }
 
     @Test public void complexWaitingTestWithPostConditions() {
+        //Failing
         final List<Boolean> calls = new ArrayList<>();
 
         AppiumFunction<Pattern, WebDriver> waitingForContext = input -> {
