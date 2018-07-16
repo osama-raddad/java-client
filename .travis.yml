@@ -14,11 +14,11 @@ matrix:
         - npm install -g appium
       script:
         - ./gradlew clean build xcuiTest -x test -x signArchives
+
     - language: android
       install: true
       os: linux
       jdk: oraclejdk8
-
       android:
         components:
           - build-tools-26.0.2
@@ -40,7 +40,6 @@ matrix:
         - android-wait-for-emulator
         - adb devices
       script:
-      - ./gradlew clean build xcuiTest -x test -x signArchives
       - ./gradlew clean build uiAutomationTest -x test -x signArchives
 
 before_cache:
