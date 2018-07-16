@@ -223,5 +223,10 @@ task uiAutomationTest( type: Test ) {
     useJUnit()
     testLogging.showStandardStreams = true
     testLogging.exceptionFormat = 'full'
-    include '**/UIAutomationTest.class'
+    filter {
+        includeTestsMatching '*.UIAutomator2Test'
+        exclude '**/UIAutomationTest.class'
+        exclude '**/IOSScreenRecordTest.class'
+        exclude '**/ImagesComparisonTest.class'
+    }
 }
