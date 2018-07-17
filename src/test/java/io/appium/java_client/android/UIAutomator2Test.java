@@ -1,5 +1,8 @@
 package io.appium.java_client.android;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.remote.AutomationName;
@@ -18,9 +21,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 public class UIAutomator2Test {
     private static AppiumDriverLocalService service;
@@ -109,8 +109,8 @@ public class UIAutomator2Test {
                 .presenceOfElementLocated(By.xpath("//*[@text='Clicked popup menu item Add']"))));
 
         wait.until(ExpectedConditions.elementToBeClickable(popUpElement)).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated
-                (By.xpath(".//*[@text='Edit']"))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath(".//*[@text='Edit']"))).click();
         assertNotNull(wait.until(ExpectedConditions
                 .presenceOfElementLocated(By.xpath("//*[@text='Clicked popup menu item Edit']"))));
 

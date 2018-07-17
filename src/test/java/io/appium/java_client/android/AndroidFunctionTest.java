@@ -1,5 +1,12 @@
 package io.appium.java_client.android;
 
+import static java.time.Duration.ofMillis;
+import static java.time.Duration.ofSeconds;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.StringContains.containsString;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+
 import io.appium.java_client.functions.AppiumFunction;
 import io.appium.java_client.functions.ExpectedCondition;
 import org.junit.Before;
@@ -18,13 +25,6 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static java.time.Duration.ofMillis;
-import static java.time.Duration.ofSeconds;
-import static org.hamcrest.core.Is.is;
-import static org.hamcrest.core.StringContains.containsString;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
-
 public class AndroidFunctionTest extends BaseAndroidTest {
 
     private final AppiumFunction<WebDriver, List<WebElement>> searchingFunction = input -> {
@@ -39,13 +39,13 @@ public class AndroidFunctionTest extends BaseAndroidTest {
     private final AppiumFunction<Pattern, WebDriver> contextFunction = input -> {
         Set<String> contexts = driver.getContextHandles();
         String current = driver.getContext();
-        contexts.forEach(
-                context -> {
-                    Matcher m = input.matcher(context);
-                    if (m.find()) {
-                        driver.context(context);
-                    }
-                });
+        contexts.forEach(context -> {
+            Matcher m = input.matcher(context);
+            if (m.find()) {
+                driver.context(context);
+            }
+            }
+        );
         if (!current.equals(driver.getContext())) {
             return driver;
         }
