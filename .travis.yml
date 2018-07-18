@@ -24,12 +24,11 @@ matrix:
           - build-tools-26.0.2
           - platform-tools
           - tools
-          - android-26
+          - android-22
           - extra-android-m2repository
           - extra-google-google_play_services
           - extra-google-m2repository
-          - sys-img-armeabi-v7a-android-26
-          - addon-google_apis-google-26
+          - sys-img-armeabi-v7a-android-22
       before_install:
         - curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
         - nvm install 6
