@@ -22,14 +22,12 @@ jobs:
           command: echo y | android update sdk -u -a -t build-tools-25.0.2
       - run:
           command: echo y | android update sdk -u -a -t android-25
+
       - run:
-          command:   echo y | android update sdk -u -a -t extra-android-m2repository
+          name: List available targets and other sdk modules
+          command: sdkmanager --list --include_obsolete --verbose
       - run:
-          command:   echo y | android update sdk -u -a -t extra-google-google_play_services
-      - run:
-          command:   echo y | android update sdk -u -a -t extra-google-m2repository
-      - run:
-          command: echo y | android update sdk -u -a -t extra-google-m2repository
+          command:   echo y | sdkmanager --update
       - run:
           command: echo y | node --version
       - run:
