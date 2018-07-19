@@ -1,6 +1,7 @@
 version: 2
 jobs:
   build:
+    working_directory: ~/code
     docker:
       - image: circleci/android:api-25-node8-alpha
 
@@ -27,9 +28,7 @@ jobs:
       - run:
           command: echo y | npm --version
       - run:
-          command: sudo chmod 777 /home/circleci
-      - run:
-          command: sudo npm install appium
+          command: sudo npm i -g appium --unsafe-perm=true --allow-root
       - run:
           command: echo no | android create avd --force -n test -t android-25 --abi armeabi-v7a
       - run:
