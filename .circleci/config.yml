@@ -30,9 +30,13 @@ jobs:
       - run:
           command: sudo npm i -g appium --unsafe-perm=true --allow-root
       - run:
+          name: List available targets and other sdk modules
+          command: sdkmanager --list --include_obsolete --verbose
+      - run:
           command: echo no | avdmanager create avd -n testEmulator -k "system-images;android-25;default;armeabi-v7a"
       - run:
           command: /opt/android-sdk-linux/emulator/emulator -avd testEmulator -no-audio -no-window
+
 
       - run:
           command: adb devices
