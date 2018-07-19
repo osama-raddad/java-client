@@ -27,7 +27,7 @@ jobs:
       - run:
           command: echo y | npm --version
       - run:
-          command: sudo chmod 777 /home/circleci/code/
+          command: sudo chmod 777 /home/circleci
       - run:
           command: sudo npm install appium
       - run:
