@@ -34,22 +34,10 @@ jobs:
       - run:
           command: /opt/android-sdk-linux/emulator/emulator -avd testEmulator -no-audio -no-window
 
-       - run:
-            name: Wait for emulator
-                command: ./android-wait-for-boot.sh
-                environment:
-                  TERM: dumb
+      - run:
+          command: adb devices
 
-            - run:
-                name: Remove lock screen
-                command: adb shell input keyevent 82
-                environment:
-                  TERM: dumb
-
-      - run: adb devices
-
-
-           - run:
+      - run:
           command: echo y | adb devices
       - run:
           name: Run Tests
