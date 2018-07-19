@@ -12,7 +12,7 @@ jobs:
       - run:
          name: Chmod permissions #if permission for Gradlew Dependencies fail, use this.
          command: sudo chmod +x ./gradlew
-                  sudo chmod 777 /usr/local/lib/
+                  sudo chmod 777 /usr/local/
       - run:
           command: echo y | android update sdk -u -a -t tools
       - run:
