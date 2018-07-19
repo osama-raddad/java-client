@@ -29,7 +29,8 @@ jobs:
           command: echo y | npm --version
       - run:
           command: sudo chmod 777 /home/circleci/code/
-                    sudo npm install appium
+      - run:
+          command: sudo npm install appium
       - run:
           command: echo no | android create avd --force -n test -t android-25 --abi armeabi-v7a
       - run:
