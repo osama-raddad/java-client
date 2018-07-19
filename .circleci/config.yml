@@ -3,8 +3,9 @@ jobs:
   build:
     working_directory: ~/code
     docker:
-      - image: circleci/android:api-25-node8-alpha
+      - image: bitriseio/docker-android:v2017_09_09-06_45-b744
 
+    working_directory: ~/workspace
     environment:
       JVM_OPTS: -Xmx3200m
     steps:
@@ -21,8 +22,6 @@ jobs:
           command: echo y | android update sdk -u -a -t build-tools-25.0.2
       - run:
           command: echo y | android update sdk -u -a -t android-25
-      - run:
-          command:   echo y | android update sdk -u -a -t addon-google_apis-google-25
       - run:
           command:   echo y | android update sdk -u -a -t extra-android-m2repository
       - run:
