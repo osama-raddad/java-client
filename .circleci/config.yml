@@ -27,8 +27,6 @@ jobs:
           name: List available targets and other sdk modules
           command: sdkmanager --list --include_obsolete --verbose
       - run:
-          command:   echo y | sudo sdkmanager --licenses
-      - run:
           command: echo y | node --version
       - run:
           command: echo y | npm --version
