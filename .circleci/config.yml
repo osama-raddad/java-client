@@ -12,7 +12,7 @@ jobs:
       - run:
          name: Chmod permissions #if permission for Gradlew Dependencies fail, use this.
          command: sudo chmod +x ./gradlew
-                  sudo chmod 777 /usr/local/
+
       - run:
           command: echo y | android update sdk -u -a -t tools
       - run:
@@ -28,7 +28,8 @@ jobs:
       - run:
           command: echo y | npm --version
       - run:
-          command:  sudo npm install -g appium
+          command: sudo chmod 777 /usr/local/
+                    sudo npm install -g appium
       - run:
           command: echo no | android create avd --force -n test -t android-25 --abi armeabi-v7a
       - run:
