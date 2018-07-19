@@ -13,8 +13,6 @@ jobs:
          name: Chmod permissions #if permission for Gradlew Dependencies fail, use this.
          command: sudo chmod +x ./gradlew
       - run:
-          command: curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
-      - run:
           command: echo y | android update sdk -u -a -t tools
       - run:
           command: echo y | android update sdk -u -a -t platform-tools
