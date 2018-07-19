@@ -27,7 +27,8 @@ jobs:
       - run:
           command: echo y | npm --version
       - run:
-          command: echo y | npm install -g appium
+          command:  sudo chmod +x /usr/local/lib/node_modules
+                    echo y | npm install -g appium
       - run:
           command: echo no | android create avd --force -n test -t android-25 --abi armeabi-v7a
       - run:
