@@ -22,11 +22,11 @@ jobs:
       - run:
           command:
           echo y | android update sdk -u -a -t android-25
-          echo y | android update sdk -u -a -t sys-img-armeabi-v7a-android-25
-          echo y | android update sdk -u -a -t addon-google_apis-google-25
-          echo y | android update sdk -u -a -t extra-android-m2repository
-          echo y | android update sdk -u -a -t extra-google-google_play_services
-          echo y | android update sdk -u -a -t extra-google-m2repository
+          android update sdk -u -a -t sys-img-armeabi-v7a-android-25
+          android update sdk -u -a -t addon-google_apis-google-25
+          android update sdk -u -a -t extra-android-m2repository
+          android update sdk -u -a -t extra-google-google_play_services
+          android update sdk -u -a -t extra-google-m2repository
       - run:
           command: echo y | android update sdk -u -a -t extra-google-m2repository
       - run:
