@@ -33,7 +33,6 @@ jobs:
           command: echo no | avdmanager create avd -n testEmulator -k "system-images;android-25;default;armeabi-v7a"
       - run:
           command: /opt/android-sdk-linux/emulator/emulator -avd testEmulator -no-audio -no-window
-          background: true
 
        - run:
             name: Wait for emulator
