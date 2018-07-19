@@ -36,7 +36,7 @@ jobs:
           name: List available targets and other sdk modules
           command: sdkmanager --list --include_obsolete --verbose
       - run:
-          command: echo no | avdmanager create avd -n test -k "system-images;android-25;google_apis;x86"
+          command: echo no | avdmanager create avd -n test -k "system-images;android-25;google_apis;armeabi-v7a"
       - run:
           command: /opt/android-sdk-linux/emulator/emulator -avd testEmulator -no-audio -no-window
 
