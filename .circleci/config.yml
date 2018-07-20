@@ -39,6 +39,7 @@ jobs:
           command: echo no | avdmanager create avd -n test -k "system-images;android-25;google_apis;armeabi-v7a"
       - run:
           command: /opt/android-sdk-linux/emulator/emulator -avd test -no-audio -no-window -no-boot-anim  -accel on
+          background: true
 
       - run:
          command: circle-android wait-for-boot
