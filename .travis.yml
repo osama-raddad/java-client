@@ -95,4 +95,5 @@ before_script:
 script:
 -adb devices
 -adb devices
+-adb devices
 
