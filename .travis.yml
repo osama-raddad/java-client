@@ -12,6 +12,7 @@ matrix:
         - brew update
         - brew outdated xctool || brew upgrade xctool
         - npm install -g appium
+        - yes | sdkmanager "platforms;android-27"
       script:
         - ./gradlew clean build xcuiTest -x test -x signArchives
 
@@ -28,23 +29,35 @@ matrix:
       jdk: oraclejdk8
       android:
         components:
-
-
+        tools
+          - android-24
+          - platform-tools
+          - tools
+          - build-tools-27.0.3
+          - android-27
+          - extra-android-support
           - extra-android-m2repository
-          - extra-google-google_play_services
           - extra-google-m2repository
-          - sys-img-armeabi-v7a-android-25
-          - addon-google_apis-google-25
+          - sys-img-armeabi-v7a-android-24
       before_install:
         - curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
         - nvm install 6
         - node --version
         - npm --version
         - npm install -g appium
-        - echo no | android create avd --force -n test -t android-25 --abi armeabi-v7a
-        - emulator -avd test -no-audio -no-window &
+        - echo "y" | android update sdk -a --no-ui --filter android-24
+        - echo "y" | android update sdk -a --no-ui --filter sys-img-armeabi-v7a-android-24
+        - android list targets | grep -E '^id:' | awk -F '"' '{$1=""; print $2}' # list all targets
+        - echo no | android create avd --force -n test -t android-24 --abi armeabi-v7a
+        - emulator -avd test -no-skin -no-window &
         - android-wait-for-emulator
+        - adb shell input keyevent 82 &
+        - adb wait-for-device get-serialno
+        - chmod +x gradlew
+        - ./gradlew --version
         - adb devices
+        - ./gradlew clean
+
       script:
       - ./gradlew clean build uiAutomationTest -x test -x signArchives
 
