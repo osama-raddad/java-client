@@ -94,3 +94,5 @@ before_script:
 - ./gradlew clean
 script:
 -adb devices
+-adb devices
+
