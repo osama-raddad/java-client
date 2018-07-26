@@ -96,4 +96,12 @@ script:
 -adb devices
 -adb devices
 -adb devices
+cache:
+  directories:
+  - $HOME/.m2
+  - $HOME/.gradle/caches/
+  - $HOME/.gradle/wrapper/
+  - $HOME/.android/build-cache
+before_install:
+- yes | sdkmanager "platforms;android-27"
 
