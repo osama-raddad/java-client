@@ -89,7 +89,7 @@ public class UIAutomator2Test {
         assertEquals(driver.rotation(), landscapeRightRotation);
     }
 
-    @Test
+
     public void testToastMSGIsDisplayed() {
         final WebDriverWait wait = new WebDriverWait(driver, 10);
         Activity activity = new Activity("io.appium.android.apis", ".view.PopupMenu1");

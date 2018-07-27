@@ -225,7 +225,6 @@ task uiAutomationTest( type: Test ) {
     testLogging.exceptionFormat = 'full'
     filter {
         includeTestsMatching '*.SettingTest'
-        includeTestsMatching '*.OpenNotificationsTest'
         includeTestsMatching '*.UIAutomator2Test'
         includeTestsMatching 'io.appium.java_client.android.ClipboardTest'
         exclude '**/UIAutomationTest.class'
