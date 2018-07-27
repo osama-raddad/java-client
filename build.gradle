@@ -227,7 +227,7 @@ task uiAutomationTest( type: Test ) {
         includeTestsMatching '*.SettingTest'
         includeTestsMatching '*.OpenNotificationsTest'
         includeTestsMatching '*.UIAutomator2Test'
-        includeTestsMatching '*.ClipboardTest'
+        includeTestsMatching 'io.appium.java_client.android.ClipboardTest'
         includeTestsMatching '*.BatteryTest'
         includeTestsMatching '*.AndroidTouchTest'
         includeTestsMatching '*.AndroidSearchingTest'
