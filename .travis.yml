@@ -16,7 +16,6 @@ matrix:
       android:
         components:
           - tools
-          - android-24
           - platform-tools
           - tools
           - build-tools-27.0.3
@@ -39,9 +38,10 @@ matrix:
         - android-wait-for-emulator
         - adb shell input keyevent 82 &
         - adb wait-for-device get-serialno
+        - sleep 100
         - chmod +x gradlew
         - ./gradlew --version
-        - adb devices
+        - echo y |adb devices
 
       script:
       - ./gradlew clean build uiAutomationTest -x test -x signArchives
