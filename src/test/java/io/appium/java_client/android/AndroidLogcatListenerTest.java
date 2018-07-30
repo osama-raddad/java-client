@@ -12,8 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class AndroidLogcatListenerTest extends BaseAndroidTest {
 
     @Test
-    public void verifyLogcatListenerCanBeAssigned() {
-        //Failing
+    public void verifyLogcatListenerCanBeAssigned() {       
         final Semaphore messageSemaphore = new Semaphore(1);
         final Duration timeout = Duration.ofSeconds(15);
 
