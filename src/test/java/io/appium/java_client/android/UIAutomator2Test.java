@@ -1,8 +1,5 @@
 package io.appium.java_client.android;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.remote.AutomationName;
@@ -21,6 +18,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class UIAutomator2Test {
     private static AppiumDriverLocalService service;
@@ -91,10 +91,11 @@ public class UIAutomator2Test {
 
     @Test
     public void testToastMSGIsDisplayed() {
-        final WebDriverWait wait = new WebDriverWait(driver, 10);
+        final WebDriverWait wait = new WebDriverWait(driver, 30);
         Activity activity = new Activity("io.appium.android.apis", ".view.PopupMenu1");
         driver.startActivity(activity);
-
+        wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy
+                                .AccessibilityId("Make a Popup!")));
         MobileElement popUpElement = driver.findElement(MobileBy.AccessibilityId("Make a Popup!"));
         wait.until(ExpectedConditions.elementToBeClickable(popUpElement)).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(
