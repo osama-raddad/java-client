@@ -9,10 +9,7 @@ import io.appium.java_client.remote.AutomationName;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServerHasNotBeenStartedLocallyException;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.DeviceRotation;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -89,7 +86,7 @@ public class UIAutomator2Test {
         assertEquals(driver.rotation(), landscapeRightRotation);
     }
 
-    @Test
+    @Ignore
     public void testToastMSGIsDisplayed() {
         final WebDriverWait wait = new WebDriverWait(driver, 30);
         Activity activity = new Activity("io.appium.android.apis", ".view.PopupMenu1");
