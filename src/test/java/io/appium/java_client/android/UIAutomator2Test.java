@@ -88,4 +88,35 @@ public class UIAutomator2Test {
         driver.rotate(landscapeRightRotation);
         assertEquals(driver.rotation(), landscapeRightRotation);
     }
+
+
+    public void testToastMSGIsDisplayed() {
+        final WebDriverWait wait = new WebDriverWait(driver, 10);
+        Activity activity = new Activity("io.appium.android.apis", ".view.PopupMenu1");
+        driver.startActivity(activity);
+
+        MobileElement popUpElement = driver.findElement(MobileBy.AccessibilityId("Make a Popup!"));
+        wait.until(ExpectedConditions.elementToBeClickable(popUpElement)).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath(".//*[@text='Search']"))).click();
+        assertNotNull(wait.until(ExpectedConditions.presenceOfElementLocated(
+                By.xpath("//*[@text='Clicked popup menu item Search']"))));
+
+        wait.until(ExpectedConditions.elementToBeClickable(popUpElement)).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath(".//*[@text='Add']"))).click();
+        assertNotNull(wait.until(ExpectedConditions
+                .presenceOfElementLocated(By.xpath("//*[@text='Clicked popup menu item Add']"))));
+
+        wait.until(ExpectedConditions.elementToBeClickable(popUpElement)).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath(".//*[@text='Edit']"))).click();
+        assertNotNull(wait.until(ExpectedConditions
+                .presenceOfElementLocated(By.xpath("//*[@text='Clicked popup menu item Edit']"))));
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath(".//*[@text='Share']"))).click();
+        assertNotNull(wait.until(ExpectedConditions
+                .presenceOfElementLocated(By.xpath("//*[@text='Clicked popup menu item Share']"))));
+    }
 }
