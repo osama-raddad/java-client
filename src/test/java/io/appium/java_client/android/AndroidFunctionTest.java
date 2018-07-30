@@ -93,9 +93,7 @@ public class AndroidFunctionTest extends BaseAndroidTest {
         assertThat("WebView is expected", driver.getContext(), containsString("WEBVIEW"));
     }
 
-    @Test
-    public void complexWaitingTestWithPostConditions() {
-        //Failing
+    @Test public void complexWaitingTestWithPostConditions() {
         final List<Boolean> calls = new ArrayList<>();
 
         AppiumFunction<Pattern, WebDriver> waitingForContext = input -> {
