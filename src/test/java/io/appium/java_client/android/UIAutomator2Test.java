@@ -47,7 +47,8 @@ public class UIAutomator2Test {
         capabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.ANDROID_UIAUTOMATOR2);
         driver = new AndroidDriver<>(service.getUrl(), capabilities);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        new WebDriverWait(driver,30).until(ExpectedConditions
+                .presenceOfElementLocated(MobileBy.AccessibilityId("Accessibility")));
     }
 
     /**
