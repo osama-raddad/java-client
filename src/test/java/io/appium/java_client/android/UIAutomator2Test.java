@@ -90,6 +90,10 @@ public class UIAutomator2Test {
         assertEquals(driver.rotation(), landscapeRightRotation);
     }
 
+
+    /**
+     * ignoring
+     */
     @Ignore
     public void testToastMSGIsDisplayed() {
         final WebDriverWait wait = new WebDriverWait(driver, 30);
