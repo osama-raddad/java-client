@@ -92,7 +92,7 @@ public class UIAutomator2Test {
 
 
     /**
-     * ignoring
+     * ignoring.
      */
     @Ignore
     public void testToastMSGIsDisplayed() {
