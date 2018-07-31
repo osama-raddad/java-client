@@ -227,6 +227,5 @@ task uiAutomationTest( type: Test ) {
         includeTestsMatching '*.SettingTest'
         includeTestsMatching 'io.appium.java_client.android.ClipboardTest'
         includeTestsMatching '*.AndroidAppStringsTest'
-        includeTestsMatching 'io.appium.java_client.android.AndroidElementTest'
     }
 }
