@@ -42,10 +42,7 @@ public class AndroidElementTest extends BaseAndroidTest {
             .findElements(MobileBy.AccessibilityId("Graphics")).size(), 1);
     }
 
-    /**
-     * ignoring.
-     */
-    @Ignore public void findByAndroidUIAutomatorTest() {
+    @Test public void findByAndroidUIAutomatorTest() {
         assertNotEquals(driver.findElementById("android:id/content")
             .findElement(MobileBy
                 .AndroidUIAutomator("new UiSelector().clickable(true)")).getText(), null);
@@ -71,10 +68,7 @@ public class AndroidElementTest extends BaseAndroidTest {
         assertEquals(replacedValue, editElement.getText());
     }
 
-    /**
-     * ignoring.
-     */
-    @Ignore public void scrollingToSubElement() {
+    @Test public void scrollingToSubElement() {
         driver.findElementByAccessibilityId("Views").click();
         AndroidElement list = driver.findElement(By.id("android:id/list"));
         MobileElement radioGroup = list
