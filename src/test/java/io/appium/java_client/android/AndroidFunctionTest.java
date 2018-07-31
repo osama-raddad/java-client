@@ -44,8 +44,7 @@ public class AndroidFunctionTest extends BaseAndroidTest {
             if (m.find()) {
                 driver.context(context);
             }
-            }
-        );
+        });
         if (!current.equals(driver.getContext())) {
             return driver;
         }

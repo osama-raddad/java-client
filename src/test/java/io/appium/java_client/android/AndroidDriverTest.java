@@ -209,7 +209,6 @@ public class AndroidDriverTest extends BaseAndroidTest {
     }
 
     @Test public void pullFileTest() {
-        //Works only on rooted devices/Emulator and adb is running as root
         byte[] data =
             driver.pullFile("/data/system/users/userlist.xml");
         assert (data.length > 0);
