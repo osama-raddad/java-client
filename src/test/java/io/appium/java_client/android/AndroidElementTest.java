@@ -23,7 +23,6 @@ import static org.junit.Assert.assertNotNull;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
